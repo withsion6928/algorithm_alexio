@@ -16,7 +16,6 @@ public class Solution_10952 {
                 break;
 
             System.out.println(a+b);
-
         }
 
 
