@@ -1,4 +1,4 @@
-package baekjoon.af_20210606_baekjoon;
+package baekjoon.af.bk20210606;
 
 import java.util.Scanner;
 
