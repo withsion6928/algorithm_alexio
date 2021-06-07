@@ -10,7 +10,7 @@ public class Solution_1330 {
 		int b = sc.nextInt();
 
 		String result  = a < b ? "<" : a > b ? ">" : "==";
-
+///check
 		System.out.println(result);
 	}
 
