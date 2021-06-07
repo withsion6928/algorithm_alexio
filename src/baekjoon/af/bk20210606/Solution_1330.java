@@ -11,7 +11,6 @@ public class Solution_1330 {
 		String result  = a < b ? "<" : a > b ? ">" : "==";
 
 		System.out.println(result);
-
 	}
 
 
