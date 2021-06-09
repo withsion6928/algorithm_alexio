@@ -6,7 +6,6 @@ import java.io.InputStreamReader
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
-
     var list = br.readLine().split(' ')
 
     var maxNum:Int = Integer.MIN_VALUE
