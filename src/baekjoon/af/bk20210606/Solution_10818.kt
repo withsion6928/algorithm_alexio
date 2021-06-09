@@ -23,5 +23,7 @@ fun main() {
         }
     }
     println("$minNum $maxNum")
+
+
 }
 
