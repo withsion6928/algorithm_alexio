@@ -6,15 +6,15 @@ fun main(args: Array<String>) {
 
     val input = Scanner(System.`in`)
 
-    val a = input.nextLong()
-    val b = input.nextLong()
-    val c = input.nextLong()
-    if( b > c)
+    val a = input.nextInt()
+    val b = input.nextInt()
+    val c = input.nextInt()
+    if( b >= c)
     {
         println(-1)
     }
     else{
-        val result = if(c-b == 0L) { 0L} else{ a / (c-b)}
+        val result= if((c-b) == 0) { 0} else{ (a / (c-b))}
         println( result +1)
     }
 
