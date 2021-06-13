@@ -41,7 +41,6 @@ fun isSouses(a : Int) :Boolean {
         {
             return false
         }
-
     }
     return true;
 }
