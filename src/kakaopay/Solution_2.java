@@ -1,32 +1,62 @@
 package kakaopay;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class Solution_2 {
+    public static int x ;
+    public static int y ;
+    public static int [][] graph;
+    public static int sum;
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String inputStr = scan.next();//3[a4[c]]  3[a]z
-        String tmpInput = inputStr;
+        y = scan.nextInt();
+        x = scan.nextInt();
 
-        Stack<Integer> stack = new Stack<Integer>();
+        String line = scan.next();
+        Scanner scan2 = new Scanner(line).useDelimiter(",");
 
-        int i = 0;
-        while(tmpInput.indexOf("[") != -1){ //[]가 없을 떄 까지 루프 수행
-            if(tmpInput.charAt(i) == '['){
-                stack.push(i);
+        graph = new int[x][y];
+        for(int i = 0 ; i < x; i ++){
+            for( int j = 0 ; j < y ; j++){
+                graph[i][j] = scan2.nextInt();
             }
-            else if(tmpInput.charAt(i) == ']'){
-                int stkPeek = stack.pop();//open 괄호 pop
-                int repeatCnt = Integer.parseInt(tmpInput.substring(stkPeek-1, stkPeek));//반복횟수
-                String convertStr = tmpInput.substring(stkPeek+1,i).repeat(repeatCnt);//반복횟수만큼 문자열 반복
-                tmpInput = tmpInput.replace(tmpInput.substring(stkPeek-1, i+1), convertStr);//기존->반복처리문자열 replace
-            }
-
-            i++;
         }
-        System.out.println(tmpInput);
-    }
+        System.out.println(Arrays.deepToString(graph));
 
+        int result = 0 ;
+        for(int i = 0 ; i < x; i ++){
+            for( int j = 0 ; j < y ; j++){
+                if(dfs(i,j)){
+                    result += graph[i][j];
+                    graph[i][j] = 0;
+                }
+            }
+        }
+
+        System.out.println("result::;"+result);
+
+
+    }
+    public static boolean dfs(int n , int m){
+        if( n < 1  || m <= -1 ||  n+1 >= x || m+1 >= y || 3 >= x || y >= 50 ){
+            return false;
+        }
+        System.out.println("n::"+n);
+        System.out.println("m::"+m);
+        System.out.println("x::"+x);
+        System.out.println("y::"+y);
+        System.out.println(":::::::::::::");
+
+        if(graph[n][m] != 0){
+            dfs(n-1, m +1);
+
+            dfs(n, m+1);
+            dfs(n+1, m +1);
+            return true;
+        }
+        return false;
+    }
 
 }
