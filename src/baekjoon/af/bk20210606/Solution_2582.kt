@@ -41,6 +41,10 @@ fun isSouses(a : Int) :Boolean {
         {
             return false
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> testAlgoDev
     }
     return true;
 }
