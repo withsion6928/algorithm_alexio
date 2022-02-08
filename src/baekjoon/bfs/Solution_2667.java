@@ -6,55 +6,57 @@ import java.util.Scanner;
 
 public class Solution_2667 {
 
-    public static boolean[] visited;
     public static int[][] arr;
     public static int resultCnt;
+    public static int[] pointX = {0, 0, -1 , 1 };
+    public static int[] pointY = {-1, 1 , 0 ,0 };
+    private static boolean[][] visited = new boolean[25][25]; //방문여부
+    public static int n ;
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt(); // 정점의 개수
+        n = sc.nextInt(); // 정점의 개수
 
-        arr = new int[n +1][n+1];
+        arr = new int[n ][n];
+        visited = new boolean[n][n];
 
         //전체 사각형 입력 받기
-        for(int i=1; i<=n; i++){
+        for(int i=0; i< n; i++){
             String input = sc.next();
-            for(int j=1; j<=n; j++){
+            for(int j=0; j<n; j++){
                 arr[i][j] = input.charAt(j)-'0';
             }
         }
 
 
+        for(int i=0; i< n; i++){
+            for(int j=0; j<n; j++){
+                if(arr[i][j] == 1 && !visited[i][j] )
+                dfs(i, j);
+            }
+        }
 
-
-        resultCnt = 0;
-        visited = new boolean[n + 1]; // 방문 여부를 검사할 배열
-        bfs(1);
-        System.out.println(resultCnt);
 
 
 
     }
-    public static void bfs(int idx){
+    public static void dfs(int x, int y){
 
-        Queue<Integer> que = new LinkedList<>();
-        que.add(idx);
-        visited[idx] = true;
-        System.out.print(idx + " ");
 
-        while( !que.isEmpty()){
-            int temp = que.peek();
-            que.poll();
-            for(int i =0; i < arr.length; i ++){
-                if(arr[temp][i] == 1 && !visited[i]){
-                    que.add(i);
-                    visited[i] = true;
-                    System.out.print(i + " ");
-                }
+        visited[x][y] = true;
+
+
+        for ( int i  = 0 ;i  < 4; i++){
+            int nx = pointX[i] + x;
+            int ny = pointY[i] + y;
+
+            if(nx >= 0 && ny >=0 && nx < n && ny < n ){
+                if(arr[nx][ny] == 1 && !visited[nx][ny])
+                    dfs(nx, ny);
+
             }
         }
-
     }
 
 }
