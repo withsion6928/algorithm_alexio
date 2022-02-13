@@ -17,8 +17,8 @@ public class Solution_7576 {
 
         Scanner sc = new Scanner(System.in);
 
-        m = sc.nextInt(); // 정점의 개수
-        n = sc.nextInt(); // 간선의 개수
+        m = sc.nextInt(); // 가로 개수
+        n = sc.nextInt(); // 세로 개수
 
         map = new int[n][m];
 
