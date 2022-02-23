@@ -10,7 +10,7 @@ public class Solution_2667 {
     public static int[] pointX = {0, 0,  1 , -1 };
     public static int[] pointY = {1, -1 , 0 ,0 };
     private static boolean[][] visited = new boolean[25][25]; //방문여부
-    private static int[] aparts = new int[25*25];
+    private static final int[] aparts = new int[25*25];
     public static int n ;
     public static  int apartNum = 0;
     public static void main(String[] args) {
